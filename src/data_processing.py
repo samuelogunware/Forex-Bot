@@ -24,12 +24,12 @@ class ForexDataProcessor:
         Fetches historical Forex data from OANDA, handling pagination for large requests.
         """
         oanda_symbol = symbol.replace('/', '_')
-        params = {"granularity": timeframe.upper(), "price": "M"} # Midpoint prices
+        params = {"granularity": timeframe.upper(), "price": "M"} 
 
         all_candles = []
         remaining_count = count
 
-        # Paginate requests to respect the API's 5000 candle limit
+
         while remaining_count > 0:
             request_count = min(remaining_count, settings.OANDA_API_REQUEST_LIMIT)
             params['count'] = request_count
@@ -65,9 +65,9 @@ class ForexDataProcessor:
 
     def fetch_forex_data_alternative(self, symbol: str, timeframe: str, count: int) -> pd.DataFrame:
         """Fallback Forex data source using Alpha Vantage."""
-        # This function can be expanded if needed
+    
         print(f"Note: Using Alpha Vantage as a fallback for {symbol}. Data may be less granular.")
-        return pd.DataFrame() # Placeholder for simplicity
+        return pd.DataFrame()
 
     def _candles_to_dataframe(self, candles: List[Dict]) -> pd.DataFrame:
         """Converts OANDA candle data to a pandas DataFrame."""

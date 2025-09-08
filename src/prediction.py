@@ -18,7 +18,7 @@ class ForexTradingPredictor:
         """
         Generates Forex trading signals with integrated stop-loss and take-profit levels.
         """
-        if latest_data.empty or len(latest_data) < 50: # Need enough data for indicators
+        if latest_data.empty or len(latest_data) < 50: 
             return self._default_signal()
 
         # --- Prepare Features ---
