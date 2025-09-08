@@ -73,7 +73,7 @@ class ForexTradingBot:
         if signal['signal'] == 'BUY':
             stop_loss_price = current_price - (signal['stop_loss_pips'] * pip_size)
             take_profit_price = current_price + (signal['take_profit_pips'] * pip_size)
-            units = 5000 # Example: 5,000 units
+            units = 5000 # Positive for a buy order
         else: # SELL
             stop_loss_price = current_price + (signal['stop_loss_pips'] * pip_size)
             take_profit_price = current_price - (signal['take_profit_pips'] * pip_size)
